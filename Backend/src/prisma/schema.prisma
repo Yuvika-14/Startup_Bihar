@@ -1,0 +1,36 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = ""
+}
+
+
+
+model Document {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  logoName              String   // New field for the logo file name
+  logoPath              String   // New field for the logo file path
+  certName              String   // New field for the certificate file name
+  certPath              String   // New field for the certificate file path
+  registrationNo        String
+  founderName           String
+  founderAadharNumber   String
+  coFounderNames        String[]
+  coFounderAadharNumbers String[]
+  sector                String
+  businessConcept       String
+  mobileNumbers         String[]
+  email                 String
+  websiteLink           String?
+  category              String
+  gender                String
+  dpiitRecognitionNo    String?
+  appliedIPR            Boolean
+}
+
+
