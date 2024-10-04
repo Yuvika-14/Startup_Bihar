@@ -34,7 +34,7 @@ const LoginCopy = () => {
       // User login
       if (id === 'user' && password === 'user') {
         toast.success('User login successful!');
-        navigate('/userprofile'); // Redirect to User Profile page
+        navigate('/profilemain'); // Redirect to User Profile page
       } else {
         setErrorMessage('Invalid User ID or Password');
         toast.error('Invalid User ID or Password');

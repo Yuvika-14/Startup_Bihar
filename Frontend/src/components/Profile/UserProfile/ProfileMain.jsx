@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const ProfileMain = (props) => {
   return (
     <div className="w-full flex min-h-max items-start flex-col justify-start bg-gradient-to-r from-gray-200 to-gray-300">
@@ -82,21 +83,14 @@ const ProfileMain = (props) => {
         </div>
 
         {/* Second Column */}
-        <div className="flex-grow flex items-start flex-col ml-5 mr-5">
+        <div className="flex-grow flex items-start flex-col ml-5 mr-5"
+          navigateTo="startupform">
           <div className="flex-1 flex items-start flex-col">
             <span className="text-[rgb(37,37,37)] text-[18px]">First Tranche</span>
             <Applytranche
-              text={
-                <Fragment>
-                  <span className="">Apply for First Tranche</span>
-                </Fragment>
-              }
-              text1={
-                <Fragment>
-                  <span className="">Fill all the required elements of the form.</span>
-                </Fragment>
-              }
-              
+              text="Apply for First Tranche"
+              text1="Fill all the required elements of the form."
+              navigateTo="/startupform" // Route for first tranche form
             />
             <span className="text-[rgb(37,37,37)] text-[18px] mt-8">Grievance Redressal</span>
             <GrievanceContainer
@@ -104,39 +98,28 @@ const ProfileMain = (props) => {
               text1="Please describe the issue in detail"
               imageSrc="/external/grievance-image.png"
               imageAlt="Grievance Form Image"
+              navigateTo=""
             />
-            <Mpr />
+            <Mpr 
+            navigateTo="/upload"/>
           </div>
         </div>
 
         {/* Third Column */}
-        <div className="flex-grow text-white inline-block text-[11px] font-mont leading-[1.4]">
+        <div className="flex-grow text-white inline-block text-[11px] font-mont leading-[1.4]"
+          navigateTo="secondtranche">
           <div className="flex-1 flex items-start flex-col">
             <span className="text-gray-900 text-lg">Second Tranche</span>
             <Applytranche
-              text={
-                <Fragment>
-                  <span className="">Apply for Second Tranche</span>
-                </Fragment>
-              }
-              text1={
-                <Fragment>
-                  <span className="">Fill all the required elements of the form.</span>
-                </Fragment>
-              }
+              text="Apply for Second Tranche"
+              text1="Fill all the required elements of the form."
+              navigateTo="/secondtrance" // Route for first tranche form
             />
             <span className="text-gray-900 text-lg mt-8">Post Seed Fund</span>
             <Applytranche
-              text={
-                <Fragment>
-                  <span className="">Apply for Post Seed Fund</span>
-                </Fragment>
-              }
-              text1={
-                <Fragment>
-                  <span className="">Fill all the required elements of the form.</span>
-                </Fragment>
-              }
+              text="Apply for Post Seed Fund"
+              text1="Fill all the required elements of the form."
+              navigateTo="/seedfunded" // Route for first tranche form
             />
           </div>
         </div>
@@ -148,10 +131,10 @@ const ProfileMain = (props) => {
 
             <Query1
               text="Query Regarding Employee"
-              text1="How many employees do you have employed in September 2024?"/>
+              text1="How many employees do you have employed in September 2024?" />
             <Query1
               text="Query Regarding Employee"
-              text1="How many employees do you have employed in September 2024?"/>
+              text1="How many employees do you have employed in September 2024?" />
             <Query1
               text="Query Regarding Employee"
               text1="How many employees do you have employed in September 2024?"

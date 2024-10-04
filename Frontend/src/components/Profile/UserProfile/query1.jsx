@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
 
-const Query1 = ({ text, text1, text2 }) => {
+const Query1 = ({ text, text1, text2, navigateTo }) => {
+
   return (
-    <div className="cursor-pointer max-w-sm flex relative justify-between items-start mt-6 p-2 rounded-xl bg-gradient-to-r from-cyan-600 to-lime-500 transition duration-300 ease-in-out">
+    // Trigger navigation on click
+    <div className="cursor-pointer max-w-sm flex relative justify-between items-start mt-6 p-2 rounded-xl bg-gradient-to-r from-cyan-600 to-lime-500 transition duration-300 ease-in-out"
+
+    >
       <div className="flex flex-col items-start">
         <span>
           {text ? (

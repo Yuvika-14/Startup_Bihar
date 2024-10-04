@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CardList from './CardList'; // Assuming this component is defined below
+import NavBar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const HomeNav = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -14,6 +16,8 @@ const HomeNav = () => {
   };
 
   return (
+    <div className=''>
+      <NavBar/>
     <div className="flex flex-col items-center justify-top min-h-screen bg-white">
       <h1 className="text-4xl font-bold mb-6">Bihar's Brightest Startups</h1>
       <div className="bg-gray-200 rounded-2xl p-4">
@@ -35,6 +39,8 @@ const HomeNav = () => {
       <div className="mt-6">
         <CardList category={selectedCategory} />
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };
