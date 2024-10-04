@@ -1,5 +1,6 @@
 
 
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,27 +11,84 @@ datasource db {
 }
 
 
+model Admin {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  admin_id  String    @unique
+  password  String
+}
 
 model Document {
-  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
-  logoName              String   // New field for the logo file name
-  logoPath              String   // New field for the logo file path
-  certName              String   // New field for the certificate file name
-  certPath              String   // New field for the certificate file path
-  registrationNo        String
-  founderName           String
-  founderAadharNumber   String
-  coFounderNames        String[]
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  logoName               String   // Store logo file name
+  logoPath               String   // Store logo file path
+  certName               String   // Store certificate file name
+  certPath               String   // Store certificate file path
+  registrationNo         String   @unique
+  founderName            String
+  founderAadharNumber    String
+  coFounderNames         String[]
   coFounderAadharNumbers String[]
-  sector                String
-  businessConcept       String
-  mobileNumbers         String[]
-  email                 String
-  websiteLink           String?
-  category              String
-  gender                String
-  dpiitRecognitionNo    String?
-  appliedIPR            Boolean
+  sector                 String
+  businessConcept        String
+  mobileNumbers          String[]
+  email                  String
+  websiteLink            String?
+  category               String
+  gender                 String
+  dpiitRecognitionNo     String?
+  appliedIPR             Boolean
+  user                   User     @relation(fields: [userId], references: [id])
+  userId                 String   @unique
+
+  
+  isCertVerified       String  // Indicates if certificate is uploaded
+  isFounderDetailsverified  String // Indicates if founder details are uploaded
+  isCoFounderDetailsverified  String // Indicates if co-founder details are uploaded
+  isMobileNumbersVerified String // Indicates if mobile numbers are uploaded
+  isEmailVerified      String // Indicates if email is uploaded
+  isDpiitRecognitionNoVerified String // Indicates if dpiitRecognitionNo is uploaded
+  
+}
+
+model User {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  user_id          String    @unique
+  password         String
+  registration_no  String    @unique
+  document         Document?
 }
 
 
+model SeedFund {
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  companyName             String
+  registrationNumber      String
+  dateOfIncorporation     DateTime
+  businessEntityType      String
+  companyCertificate      String?
+  rocDistrict             String
+  companyAddress          String
+  pincode                 String
+  bankName                String
+  ifscCode                String
+  currentAccountNumber    String
+  currentAccountHolderName String
+  branchName              String
+  branchAddress           String
+  cancelChequeOrPassbook  String?
+  panNumber               String
+  gstNumber               String
+  createdAt               DateTime @default(now())
+}
+
+
+model SecondTranche {
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  utilizationCertificate String?
+  statusReport         String?
+  expenditurePlan      String?
+  bankStatement        String?
+  expenditureInvoice   String?
+  geoTaggedPhotos      String?
+  createdAt            DateTime @default(now())
+}
