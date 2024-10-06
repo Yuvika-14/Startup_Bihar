@@ -1,6 +1,5 @@
 
 
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,6 +9,16 @@ datasource db {
   url      = "mongodb+srv://user21:AhK5DzvWLqvHd29u@cluster0.8vbjcu1.mongodb.net/mydb"
 }
 
+model User {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  user_id          String    @unique
+  password         String
+  registration_no  String    @unique
+  document         Document? // One-to-one relation
+  seedFund         SeedFund? // One-to-one relation
+  secondTranche    SecondTranche? // One-to-one relation
+  postSeedFund     PostSeedFund? // One-to-one relation
+}
 
 model Admin {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -37,58 +46,65 @@ model Document {
   gender                 String
   dpiitRecognitionNo     String?
   appliedIPR             Boolean
-  user                   User     @relation(fields: [userId], references: [id])
+  user                   User     @relation(fields: [userId], references: [id]) // One-to-one relation
   userId                 String   @unique
-
-  
-  isCertVerified       String  // Indicates if certificate is uploaded
-  isFounderDetailsverified  String // Indicates if founder details are uploaded
-  isCoFounderDetailsverified  String // Indicates if co-founder details are uploaded
-  isMobileNumbersVerified String // Indicates if mobile numbers are uploaded
-  isEmailVerified      String // Indicates if email is uploaded
+  isCertVerified         String   // Indicates if certificate is uploaded
+  isFounderDetailsVerified String // Indicates if founder details are uploaded
+  isCoFounderDetailsVerified String // Indicates if co-founder details are uploaded
+  isMobileNumbersVerified String  // Indicates if mobile numbers are uploaded
+  isEmailVerified        String   // Indicates if email is uploaded
   isDpiitRecognitionNoVerified String // Indicates if dpiitRecognitionNo is uploaded
-  
 }
-
-model User {
-  id               String    @id @default(auto()) @map("_id") @db.ObjectId
-  user_id          String    @unique
-  password         String
-  registration_no  String    @unique
-  document         Document?
-}
-
 
 model SeedFund {
   id                     String   @id @default(auto()) @map("_id") @db.ObjectId
-  companyName             String
-  registrationNumber      String
-  dateOfIncorporation     DateTime
-  businessEntityType      String
-  companyCertificate      String?
-  rocDistrict             String
-  companyAddress          String
-  pincode                 String
-  bankName                String
-  ifscCode                String
-  currentAccountNumber    String
+  companyName            String
+  registrationNumber     String
+  dateOfIncorporation    DateTime
+  businessEntityType     String
+  companyCertificate     String?
+  rocDistrict            String
+  companyAddress         String
+  pincode                String
+  bankName               String
+  ifscCode               String
+  currentAccountNumber   String
   currentAccountHolderName String
-  branchName              String
-  branchAddress           String
-  cancelChequeOrPassbook  String?
-  panNumber               String
-  gstNumber               String
-  createdAt               DateTime @default(now())
-}
+  branchName             String
+  branchAddress          String
+  cancelChequeOrPassbook String?
+  panNumber              String
+  gstNumber              String
+  createdAt              DateTime @default(now())
 
+  userId                 String   @unique // One-to-one relation
+  user                   User     @relation(fields: [userId], references: [id]) // Many-to-one relation
+}
 
 model SecondTranche {
   id                     String   @id @default(auto()) @map("_id") @db.ObjectId
-  utilizationCertificate String?
-  statusReport         String?
-  expenditurePlan      String?
-  bankStatement        String?
-  expenditureInvoice   String?
-  geoTaggedPhotos      String?
-  createdAt            DateTime @default(now())
+  utilizationCertificate  String?
+  statusReport            String?
+  expenditurePlan         String?
+  bankStatement           String?
+  expenditureInvoice      String?
+  geoTaggedPhotos         String?
+  createdAt               DateTime @default(now())
+
+  userId                 String   @unique // One-to-one relation
+  user                   User     @relation(fields: [userId], references: [id]) // Many-to-one relation
+}
+
+model PostSeedFund {
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  currentStage           String   // dropdown (Ideation, Prototype Validation, MVP, Scaling)
+  technicalKnowledge     Boolean  // Checkbox (Yes/No)
+  auditedBalanceSheet    String?  // File path for audited balance sheet (nullable)
+  gstReturn              String?  // File path for GST return (nullable)
+  raisedFunds            Boolean  // Checkbox (Yes/No)
+  employment             Boolean  // Checkbox (Yes/No)
+  projectReport          String?  // File path for project report (nullable)
+
+  userId                 String   @unique // One-to-one relation
+  user                   User     @relation(fields: [userId], references: [id])
 }

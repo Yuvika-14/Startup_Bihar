@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import apply_now from '../../../assets/apply_now_.png';
 
-
-const GrievanceContainer = ({ text, text1, imageSrc, imageAlt }) => {
+const GrievanceContainer = ({ text, text1}) => {
   return (
-    <div className="cursor-pointer max-w-lg flex relative justify-between items-start mt-6 p-2 rounded-xl bg-gradient-to-r from-green-600 to-teal-600 transition-transform duration-300 ease-in-out hover:scale-105">
+    <div className="w-72 h-30 cursor-pointer flex relative justify-between items-start mt-6 p-4 rounded-xl bg-gradient-to-r from-green-600 to-teal-600 transition-transform duration-300 ease-in-out hover:scale-105"> {/* Match width and height with Applytranche */}
       <div className="flex flex-col items-start">
         <span className="text-white text-sm">
           {text}
         </span>
-        <div className="w-6 h-1 mt-2 mb-2 bg-white rounded"></div>
+        <div className="w-8 h-1 mt-2 mb-2 bg-white rounded"></div> {/* Adjusted width of the divider */}
         <span className="text-white text-xs">
           {text1}
         </span>
       </div>
-      <div className="flex flex-col justify-center items-center self-start w-18 h-18">
+      <div className="flex flex-col justify-center items-center self-start">
         <img
-          alt={imageAlt}
-          src={imageSrc}
-          className="w-[70px] h-[52px] object-cover"
+          alt="image"
+          src={apply_now}
+          className="w-16 h-16 object-cover" // Keep the image size consistent
         />
       </div>
     </div>
@@ -28,8 +28,6 @@ const GrievanceContainer = ({ text, text1, imageSrc, imageAlt }) => {
 GrievanceContainer.propTypes = {
   text: PropTypes.string.isRequired,
   text1: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string.isRequired,
 };
 
 export default GrievanceContainer;

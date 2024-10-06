@@ -15,18 +15,22 @@ import { useNavigate } from 'react-router-dom';
 
 const ProfileMain = (props) => {
   return (
-    <div className="w-full flex min-h-max items-start flex-col justify-start bg-gradient-to-r from-gray-200 to-gray-300">
+    <div className="w-full flex min-h-max items-start flex-col justify-start">
       <Helmet>
         <title>Startup Bihar Portal</title>
         <meta property="og:title" content="Startup Bihar Portal" />
       </Helmet>
       <NavBar />
 
-      <Startupdetails />
+      <Startupdetails
+        founderimage="https://cdn.brandfetch.io/massart.edu/fallback/transparent/theme/dark/h/512/w/512/icon?t=1719560097892"
+        companyname="Sudha.com"
+        year="2000"
+      />
       <div className="flex flex-col md:flex-row w-full items-start justify-start space-y-4 md:space-y-0 p-4"> {/* Adjusted for responsive layout */}
 
         {/* First Column (Fixed Size) */}
-        <div className="flex-none w-auto h-auto flex flex-col items-start">
+        <div className="ml-[3%] flex-none w-auto h-auto flex flex-col items-start">
           <Startupfinanceandemployee
             text={
               <Fragment>
@@ -83,7 +87,7 @@ const ProfileMain = (props) => {
         </div>
 
         {/* Second Column */}
-        <div className="flex-grow flex items-start flex-col ml-5 mr-5"
+        <div className="flex-grow flex items-start flex-col ml-[3%] "
           navigateTo="startupform">
           <div className="flex-1 flex items-start flex-col">
             <span className="text-[rgb(37,37,37)] text-[18px]">First Tranche</span>
@@ -100,13 +104,13 @@ const ProfileMain = (props) => {
               imageAlt="Grievance Form Image"
               navigateTo=""
             />
-            <Mpr 
-            navigateTo="/upload"/>
+            <Mpr
+              navigateTo="/upload" />
           </div>
         </div>
 
         {/* Third Column */}
-        <div className="flex-grow text-white inline-block text-[11px] font-mont leading-[1.4]"
+        <div className="ml-[3%] flex-grow text-white inline-block text-[11px] font-mont leading-[1.4]"
           navigateTo="secondtranche">
           <div className="flex-1 flex items-start flex-col">
             <span className="text-gray-900 text-lg">Second Tranche</span>

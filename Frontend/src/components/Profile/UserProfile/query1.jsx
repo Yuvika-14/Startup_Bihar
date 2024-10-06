@@ -6,7 +6,7 @@ const Query1 = ({ text, text1, text2, navigateTo }) => {
 
   return (
     // Trigger navigation on click
-    <div className="cursor-pointer max-w-sm flex relative justify-between items-start mt-6 p-2 rounded-xl bg-gradient-to-r from-cyan-600 to-lime-500 transition duration-300 ease-in-out"
+    <div className="w-72 h-30 cursor-pointer max-w-sm flex relative justify-between items-start mt-6 p-2 rounded-xl bg-gradient-to-r from-cyan-600 to-lime-500 transition duration-300 ease-in-out"
 
     >
       <div className="flex flex-col items-start">

@@ -1,7 +1,7 @@
 
 
 const express = require('express');
-const multer = require('multer');
+
 const secondTrancheController = require('../controllers/secondTrancheController');
 
 const router = express.Router();

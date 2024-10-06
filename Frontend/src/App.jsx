@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeNav from './components/HomePage/HomeNav';
-import AdminProfile from './components/Profile/AdminProfile'; // Import AdminProfile component
+import AdminProfile from './components/Profile/AdminProfile/App'; // Import AdminProfile component
 import ProfileMain from './components/Profile/UserProfile/ProfileMain'; // Import ProfileMain
 import LoginCopy from './components/Login/LoginCopy';
 import Startupform from './components/UserForm/Startupform';
@@ -10,6 +10,7 @@ import SecondTrance from './components/UserForm/SecondTrance';
 import SeedFunded from './components/UserForm/SeedFunded';
 import login1 from './components/Login/LoginCopy';
 import Profile from './components/Profile/Profile';
+import AdminProfile1 from './components/Profile/AdminProfile/AdminProfile';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomeNav />} />
           <Route path="/login" element={<LoginCopy />} />
-          <Route path="/adminprofile" element={<AdminProfile />} /> {/* Admin profile route */}
+          <Route path="/adminprofile" element={<AdminProfile1/>} /> {/* Admin profile route */}
           <Route path="/profilemain" element={<ProfileMain />} />   {/* User profile route */}
           <Route path="/all" element={<HomeNav />} />
           <Route path="/tech" element={<HomeNav />} />
