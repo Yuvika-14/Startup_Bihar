@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import toast, { Toaster } from "react-hot-toast";
 import userData from "./userDetalis";
+import AdminNavbar from "./Navbar/Navbar";
 
 function SecondTrancheForm() {
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -163,6 +164,11 @@ function SecondTrancheForm() {
   };
 
   return (
+    <div className="flex">
+
+    <AdminNavbar/>
+    <div className="flex-1 p-6">
+
     <div className="px-4 sm:px-0 flex h-screen">
       <div className="w-1/3 border-r p-4">
         <h3 className="text-lg font-semibold mb-4">Second Tranche</h3>
@@ -503,6 +509,8 @@ function SecondTrancheForm() {
         )}
         <Toaster />
       </div>
+    </div>
+    </div>
     </div>
   );
 }

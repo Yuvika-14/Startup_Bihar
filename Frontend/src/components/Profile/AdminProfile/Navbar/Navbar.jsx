@@ -1,33 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiOutlineUser, HiOutlineDocumentText, HiOutlineCash } from "react-icons/hi"; // Importing icons
 
-const Navbar = () => {
+const AdminNavbar = () => {
   return (
-    <nav className="w-64 h-screen bg-gray-100 p-4 font-montserrat font-bold">
-      <h2>Form</h2>
+    <nav className="w-64 h-screen bg-gray-100 p-6 font-montserrat font-medium text-gray-700">
+      <h2 className="text-lg mb-6 text-gray-900">Navigation</h2>
       <ul className="space-y-4">
-        <li>
+        <li className="border-b border-gray-300 pb-2">
           <Link
-            to="/starter"
-            className="text-blue-500 hover:text-blue-700 block"
+            to="/AdminSeedFundForm"
+            className="flex items-center space-x-3 hover:text-blue-500"
           >
-            Starter Profile
+            <HiOutlineUser className="w-6 h-6" /> {/* Starter Profile Icon */}
+            <span>Starter Profile</span>
           </Link>
         </li>
-        <li>
+        <li className="border-b border-gray-300 pb-2">
           <Link
-            to="/seedFund"
-            className="text-blue-500 hover:text-blue-700 block"
+            to="/AdminForm"
+            className="flex items-center space-x-3 hover:text-blue-500"
           >
-            Seed Fund
+            <HiOutlineDocumentText className="w-6 h-6" /> {/* Seed Fund Icon */}
+            <span>Seed Fund</span>
           </Link>
         </li>
-        <li>
+        <li className="border-b border-gray-300 pb-2">
           <Link
-            to="/secondTranche"
-            className="text-blue-500 hover:text-blue-700 block"
+            to="/AdminSecondTrancheForm"
+            className="flex items-center space-x-3 hover:text-blue-500"
           >
-            Second Tranche
+            <HiOutlineCash className="w-6 h-6" /> {/* Second Tranche Icon */}
+            <span>Second Tranche</span>
           </Link>
         </li>
       </ul>
@@ -35,4 +39,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default AdminNavbar;

@@ -6,7 +6,7 @@ import SeedAdminForm from "./seedAdminForm";
 import SecondTrancheAdminForm from "./secondTrancheAdminForm";
 import Navbar from "./Navbar/Navbar";
 
-const App = () => {
+const AdminApp = () => {
   return (
     <Router>
       <div className="flex">
@@ -25,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AdminApp;

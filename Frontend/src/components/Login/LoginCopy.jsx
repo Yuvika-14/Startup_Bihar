@@ -55,7 +55,7 @@ const LoginCopy = () => {
 
         // Redirect based on login type
         if (isAdminLogin) {
-          navigate('/adminprofile'); // Admin profile page
+          navigate('/AdminSeedFundForm'); // Admin profile page
         } else {
           navigate('/profilemain'); // User profile page
         }
