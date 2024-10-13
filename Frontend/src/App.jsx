@@ -7,6 +7,8 @@ import Startupform from './components/UserForm/Startupform';
 import Upload from './components/UserForm/Upload';
 import SecondTrance from './components/UserForm/SecondTrance';
 import SeedFunded from './components/UserForm/SeedFunded';
+import Coworking from './components/UserForm/Coworking';
+import Acc from './components/UserForm/Acc';
 import login1 from './components/Login/LoginCopy';
 import Profile from './components/Profile/Profile';
 import AdminApp from './components/Profile/AdminProfile/AdminApp';
@@ -14,6 +16,8 @@ import SecondTrancheForm from './components/Profile/AdminProfile/secondTrancheAd
 import SeedAdminForm from './components/Profile/AdminProfile/seedAdminForm';
 import AdminForm from './components/Profile/AdminProfile/starterAdminForm';
 import TopNavbar from './components/Profile/AdminProfile/Navbar/TopNavBar';
+import Matchingloan from './components/UserForm/Matchingloan';
+import Postseed from './components/UserForm/Postseed';
 
 const App = () => {
   return (
@@ -34,10 +38,14 @@ const App = () => {
           <Route path="/food" element={<HomeNav />} />
           <Route path="/startupform" element={<Startupform />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/acc" element={<Acc />} />
           <Route path="/secondtrance" element={<SecondTrance />} />
           <Route path="/seedfunded" element={<SeedFunded />} />
+          <Route path="/cow" element={<Coworking />} />
+          <Route path="/match" element={<Matchingloan />} />
           <Route path="/login1" element={<LoginCopy />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/postseed" element={<Postseed />} />
           <Route path="/AdminSeedFundForm" element={<SeedAdminForm />} />
           <Route path="/AdminSecondTrancheForm" element={<SecondTrancheForm />} />
           <Route path="/AdminForm" element={<AdminForm />} />
