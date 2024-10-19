@@ -71,12 +71,14 @@ const LoginCopy = () => {
     }
   };
 
-  const toggleLoginMode = () => {
-    setIsAdminLogin(!isAdminLogin);
+  
+  const toggleLoginMode = (isAdmin) => {
+    setIsAdminLogin(isAdmin);  // Set the mode based on the parameter
     setErrorMessage('');
     setId('');
     setPassword('');
   };
+  
 
   return (
 <div className="relative flex items-center justify-center min-h-screen bg-gray-100 px-6 py-12 lg:px-8">
@@ -96,7 +98,8 @@ const LoginCopy = () => {
             name="login-type"
             className="hidden"
             checked={!isAdminLogin}
-            onChange={() => setIsAdminLogin(false)}
+            
+            onChange={() => toggleLoginMode(false)} 
           />
           <span className={`px-4 py-2 rounded-full ${!isAdminLogin ? 'border-2 border-blue-500' : 'border'}`}>Startup</span>
         </label>
@@ -106,7 +109,7 @@ const LoginCopy = () => {
             name="login-type"
             className="hidden"
             checked={isAdminLogin}
-            onChange={() => setIsAdminLogin(true)}
+            onChange={() => toggleLoginMode(false)} 
           />
           <span className={`px-4 py-2 rounded-full ${isAdminLogin ? 'border-2 border-blue-500' : 'border'}`}>Admin</span>
         </label>
